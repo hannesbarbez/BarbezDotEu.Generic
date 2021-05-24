@@ -2,9 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Authors>Barbez.eu</Authors>
-    <Company>Barbez.eu</Company>
+    <Authors>Hannes Barbez</Authors>
+    <Company>Hannes Barbez</Company>
+    <Title>BarbezDotEu.Generic</Title>
     <Product>BarbezDotEu.Generic</Product>
+    <Copyright>©2021 Hannes Barbez</Copyright>
+    <Version>1.0.0</Version>
+    <RepositoryUrl>https://github.com/hannesbarbez/BarbezDotEu.Generic</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
