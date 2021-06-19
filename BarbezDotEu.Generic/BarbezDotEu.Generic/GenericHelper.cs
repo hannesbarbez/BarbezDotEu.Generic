@@ -8,10 +8,16 @@ using System.Linq;
 namespace BarbezDotEu.Generic
 {
     /// <summary>
-    /// Borrowed from https://stackoverflow.com/questions/2019417/how-to-access-random-item-in-list.
+    /// Generic helper extension method adapted from https://stackoverflow.com/questions/2019417/how-to-access-random-item-in-list, amongst others.
     /// </summary>
     public static class GenericHelper
     {
+        /// <summary>
+        /// From a given <see cref="IEnumerable{T}"/>, selects a random single item.
+        /// </summary>
+        /// <typeparam name="T">The type to pick one of.</typeparam>
+        /// <param name="source">The source collection to pick one item out of.</param>
+        /// <returns>One item, randomly chosen from the given collection.</returns>
         public static T PickRandom<T>(this IEnumerable<T> source)
         {
             return source.PickRandom(1).Single();
@@ -29,6 +35,12 @@ namespace BarbezDotEu.Generic
             return source.Shuffle().Take(count);
         }
 
+        /// <summary>
+        /// Randomly shuffles the given source collection.
+        /// </summary>
+        /// <typeparam name="T">The types to be found in the collection to shuffle.</typeparam>
+        /// <param name="source">The collection to shuffle.</param>
+        /// <returns>A shuffled version of the given collection.</returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> source)
         {
             return source.OrderBy(x => Guid.NewGuid());
@@ -40,7 +52,7 @@ namespace BarbezDotEu.Generic
         /// </summary>
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="source">The source.</param>
-        /// <param name="count">The number of items to take.</param>
+        /// <param name="numberOfItems">The number of items to take.</param>
         /// <returns>The random list.</returns>
         public static IEnumerable<T> GenerateRandomList<T>(this IEnumerable<T> source, int numberOfItems)
         {
