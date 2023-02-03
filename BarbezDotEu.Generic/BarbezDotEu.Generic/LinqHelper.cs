@@ -4,13 +4,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace BarbezDotEu.Generic
 {
     /// <summary>
-    /// Generic helper extension method adapted from https://stackoverflow.com/questions/2019417/how-to-access-random-item-in-list, amongst others.
+    /// Generic helper extension method adapted for Linq
+    /// from https://stackoverflow.com/questions/2019417/how-to-access-random-item-in-list, 
+    /// http://www.albahari.com/nutshell/predicatebuilder.aspxamongst, and others.
     /// </summary>
-    public static class GenericHelper
+    public static class LinqHelper
     {
         /// <summary>
         /// From a given <see cref="IEnumerable{T}"/>, selects a random single item.
@@ -70,6 +73,23 @@ namespace BarbezDotEu.Generic
             var lastItems = source.PickRandom(itemsInLastIteration);
             results.AddRange(lastItems);
             return results;
+        }
+
+        public static Expression<Func<T, bool>> True<T>() { return f => true; }
+        public static Expression<Func<T, bool>> False<T>() { return f => false; }
+
+        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
+        {
+            var invokedExpr = Expression.Invoke(expr2, expr1.Parameters.Cast<Expression>());
+            return Expression.Lambda<Func<T, bool>>
+                  (Expression.OrElse(expr1.Body, invokedExpr), expr1.Parameters);
+        }
+
+        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> expr1, Expression<Func<T, bool>> expr2)
+        {
+            var invokedExpr = Expression.Invoke(expr2, expr1.Parameters.Cast<Expression>());
+            return Expression.Lambda<Func<T, bool>>
+                  (Expression.AndAlso(expr1.Body, invokedExpr), expr1.Parameters);
         }
     }
 }
