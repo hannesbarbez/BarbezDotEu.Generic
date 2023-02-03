@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BarbezDotEu.Generic</name>
+    </assembly>
+    <members>
+        <member name="T:BarbezDotEu.Generic.LinqHelper">
+            <summary>
+            Generic helper extension method adapted for Linq
+            from https://stackoverflow.com/questions/2019417/how-to-access-random-item-in-list, 
+            http://www.albahari.com/nutshell/predicatebuilder.aspxamongst, and others.
+            </summary>
+        </member>
+        <member name="M:BarbezDotEu.Generic.LinqHelper.PickRandom``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            From a given <see cref="T:System.Collections.Generic.IEnumerable`1"/>, selects a random single item.
+            </summary>
+            <typeparam name="T">The type to pick one of.</typeparam>
+            <param name="source">The source collection to pick one item out of.</param>
+            <returns>One item, randomly chosen from the given collection.</returns>
+        </member>
+        <member name="M:BarbezDotEu.Generic.LinqHelper.PickRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Picks an n number of items randomly from the <see cref="T:System.Collections.Generic.IEnumerable`1"/>. If n is larger than the number of items in the list, returns all items in the list only (which in this case is less than the number of items given to return).
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="source">The source.</param>
+            <param name="count">The number of items to take.</param>
+            <returns>The random list.</returns>
+        </member>
+        <member name="M:BarbezDotEu.Generic.LinqHelper.Shuffle``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Randomly shuffles the given source collection.
+            </summary>
+            <typeparam name="T">The types to be found in the collection to shuffle.</typeparam>
+            <param name="source">The collection to shuffle.</param>
+            <returns>A shuffled version of the given collection.</returns>
+        </member>
+        <member name="M:BarbezDotEu.Generic.LinqHelper.GenerateRandomList``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Generates n number of items randomly from a given <see cref="T:System.Collections.Generic.IEnumerable`1"/> source,
+            even if the source list has less items than the number of items to return (as provided by the numberOfThings).
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="source">The source.</param>
+            <param name="numberOfItems">The number of items to take.</param>
+            <returns>The random list.</returns>
+        </member>
+        <member name="T:BarbezDotEu.Generic.ReflectionHelper">
+            <summary>
+            Generic helper extension method adapted for Reflection from https://stackoverflow.com/a/1954663, amongst others.
+            </summary>
+        </member>
+        <member name="M:BarbezDotEu.Generic.ReflectionHelper.GetPropertyValue``1(System.Object,System.String)">
+            <summary>
+            Example use: DateTime now = DateTime.Now;
+            int min = GetPropertyValue&lt;int&gt;(now, "TimeOfDay.Minutes");
+            int hrs = now.GetPropertyValue&lt;int&gt;("TimeOfDay.Hours");
+            </summary>
+        </member>
+    </members>
+</doc>
