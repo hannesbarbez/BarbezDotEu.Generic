@@ -21,4 +21,12 @@
     <DebugSymbols>true</DebugSymbols>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+    <!-- only applies when Configuration == Release: -->
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <!-- Turn off generation of a .pdb and strip debug info entirely -->
+        <DebugType>none</DebugType>
+        <DebugSymbols>false</DebugSymbols>
+        <Optimize>true</Optimize>
+    </PropertyGroup>
 </Project>
