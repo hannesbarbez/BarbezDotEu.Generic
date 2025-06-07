@@ -6,7 +6,7 @@
         <Title>BarbezDotEu.Generic</Title>
         <Product>BarbezDotEu.Generic</Product>
         <PackageId>BarbezDotEu.Generic</PackageId>
-        <Copyright>©2023 Hannes Barbez</Copyright>
+        <Copyright>©2025 Hannes Barbez</Copyright>
         <Version>3.0.1</Version>
         <Description>Misc. generic helper extension methods for Linq, Reflection, and others.</Description>
         <PackageTags>basic;helper;extensions;barbez</PackageTags>
