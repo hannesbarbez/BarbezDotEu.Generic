@@ -14,8 +14,8 @@ namespace BarbezDotEu.Generic
         /// Example usage:
         /// <code>
         /// DateTime now = DateTime.Now;
-        /// int min = now.GetPropertyValue<int>("TimeOfDay.Minutes");
-        /// int hrs = now.GetPropertyValue<int>("TimeOfDay.Hours");
+        /// int min = now.GetPropertyValue&lt;int&gt;("TimeOfDay.Minutes");
+        /// int hrs = now.GetPropertyValue&lt;int&gt;("TimeOfDay.Hours");
         /// </code>
         /// </summary>
         /// <typeparam name="T">The expected type of the property value.</typeparam>
